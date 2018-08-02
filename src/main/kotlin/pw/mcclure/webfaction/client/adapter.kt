@@ -8,8 +8,7 @@ interface RpcAdapter {
 }
 
 open class WebfactionRpc : RpcAdapter {
-    val client =
-        XMLRPCClient(URL("https://api.webfaction.com"))
+    val client = XMLRPCClient(URL("https://api.webfaction.com"))
 
     override fun call(method: String, vararg params: Any): Any =
         client.call(method, *params)
