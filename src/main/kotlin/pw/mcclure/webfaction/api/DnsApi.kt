@@ -8,7 +8,7 @@ class DnsApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
     Api(rpc, sessionId) {
 
     /**
-     * See https://docs.webfaction.com/xmlrpc-api/apiref.html#method-create_dns_override
+     * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-create_dns_override>
      */
     fun createOverride(
         domain: String,
@@ -52,7 +52,7 @@ class DnsApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
     )
 
     /**
-     * See https://docs.webfaction.com/xmlrpc-api/apiref.html#method-list_dns_overrides
+     * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-list_dns_overrides>
      */
     fun listOverrides() = call("list_dns_overrides")
 }
