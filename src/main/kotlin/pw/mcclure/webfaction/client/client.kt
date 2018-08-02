@@ -35,21 +35,19 @@ open class Client(
             misc = MiscApi(sessionId, rpc)
         }
 
-    var app: AppApi? = null
-        protected set
-
-    lateinit var certificate: CertificateApi
-    lateinit var misc: MiscApi
-    lateinit var cron: CronApi
-    lateinit var db: DbApi
-    lateinit var dns: DnsApi
-    lateinit var domain: DomainApi
-    lateinit var email: EmailApi
-    lateinit var file: FileApi
-    lateinit var general: GeneralApi
-    lateinit var server: ServerApi
-    lateinit var shellUser: ShellUserApi
-    lateinit var website: WebsiteApi
+    val app: AppApi = AppApi(rpc)
+    val misc: MiscApi = MiscApi(rpc)
+    val certificate: CertificateApi = CertificateApi(rpc)
+    val cron: CronApi = CronApi(rpc)
+    val db: DbApi = DbApi(rpc)
+    val dns: DnsApi = DnsApi(rpc)
+    val domain: DomainApi = DomainApi(rpc)
+    val email: EmailApi = EmailApi(rpc)
+    val file: FileApi = FileApi(rpc)
+    val general: GeneralApi = GeneralApi(rpc)
+    val server: ServerApi = ServerApi(rpc)
+    val shellUser: ShellUserApi = ShellUserApi(rpc)
+    val website: WebsiteApi = WebsiteApi(rpc)
 
     /**
      * Logs in to the Webfaction API
