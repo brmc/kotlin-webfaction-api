@@ -1,12 +1,13 @@
 package pw.mcclure.webfaction.client
 
 import pw.mcclure.webfaction.api.*
+import kotlin.reflect.KProperty
 
 
 /**
  * The main entry point for using the Webfaction API
  *
- * Created from your Webfaction [username], [password], and [server]
+ * Created from your Webfaction [username], [password], and [serverName]
  * information. Optionally the [rpc] mechanism can be swapped out with the
  * implementation of your choosing
  */
@@ -17,23 +18,7 @@ open class Client(
     internal val rpc: RpcAdapter = WebfactionRpc()
 ) : RpcAdapter by rpc {
 
-    var sessionId = ""
-        set(value) {
-            field = value
-            app = AppApi(sessionId, rpc)
-            certificate = CertificateApi(sessionId, rpc)
-            cron = CronApi(sessionId, rpc)
-            db = DbApi(sessionId, rpc)
-            dns = DnsApi(sessionId, rpc)
-            domain = DomainApi(sessionId, rpc)
-            email = EmailApi(sessionId, rpc)
-            file = FileApi(sessionId, rpc)
-            general = GeneralApi(sessionId, rpc)
-            server = ServerApi(sessionId, rpc)
-            shellUser = ShellUserApi(sessionId, rpc)
-            website = WebsiteApi(sessionId, rpc)
-            misc = MiscApi(sessionId, rpc)
-        }
+    var sessionId: String by SessionUpdater()
 
     val app: AppApi = AppApi(rpc)
     val misc: MiscApi = MiscApi(rpc)
@@ -60,4 +45,30 @@ open class Client(
         .also { sessionId = it[0] as String }
 }
 
+/**
+ * Changes to [Client.sessionId] are propagated to API objects
+ */
+private class SessionUpdater {
+    operator fun getValue(client: Client, property: KProperty<*>): String {
+        return client.sessionId
+    }
 
+    operator fun setValue(
+        client: Client, prop: KProperty<*>, sessionId: String
+    ) {
+        client.sessionId = sessionId
+        client.app.sessionId = sessionId
+        client.misc.sessionId = sessionId
+        client.certificate.sessionId = sessionId
+        client.cron.sessionId = sessionId
+        client.db.sessionId = sessionId
+        client.dns.sessionId = sessionId
+        client.domain.sessionId = sessionId
+        client.email.sessionId = sessionId
+        client.file.sessionId = sessionId
+        client.general.sessionId = sessionId
+        client.server.sessionId = sessionId
+        client.shellUser.sessionId = sessionId
+        client.website.sessionId = sessionId
+    }
+}
