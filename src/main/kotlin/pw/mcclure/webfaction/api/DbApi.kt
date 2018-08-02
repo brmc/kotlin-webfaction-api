@@ -3,8 +3,8 @@ package pw.mcclure.webfaction.api
 import pw.mcclure.webfaction.client.RpcAdapter
 import pw.mcclure.webfaction.client.WebfactionRpc
 
-class DbApi(sessionId: String, rpc: RpcAdapter = WebfactionRpc()) :
-    Api(sessionId, rpc) {
+class DbApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
+    Api(rpc, sessionId) {
     /**
      * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-create_db>
      */

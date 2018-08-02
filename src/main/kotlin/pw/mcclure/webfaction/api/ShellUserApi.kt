@@ -7,8 +7,8 @@ import pw.mcclure.webfaction.client.WebfactionRpc
  *  User management for shell access
  *  See <https://docs.webfaction.com/xmlrpc-api/apiref.html#shell-users>
  */
-class ShellUserApi(sessionId: String, rpc: RpcAdapter = WebfactionRpc()) :
-    Api(sessionId, rpc) {
+class ShellUserApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
+    Api(rpc, sessionId) {
     /**
      *  See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-change_user_password>
      */

@@ -8,8 +8,8 @@ import pw.mcclure.webfaction.client.WebfactionRpc
  *
  *  See <https://docs.webfaction.com/xmlrpc-api/apiref.html#files>
  */
-class FileApi(sessionId: String, rpc: RpcAdapter = WebfactionRpc()) :
-    Api(sessionId, rpc) {
+class FileApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
+    Api(rpc, sessionId) {
     /**
      *  See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-replace_in_file>
      */

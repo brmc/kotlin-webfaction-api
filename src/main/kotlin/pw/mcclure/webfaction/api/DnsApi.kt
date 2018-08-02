@@ -4,8 +4,8 @@ import pw.mcclure.webfaction.client.RpcAdapter
 import pw.mcclure.webfaction.client.WebfactionRpc
 
 
-class DnsApi(sessionId: String, rpc: RpcAdapter = WebfactionRpc()) :
-    Api(sessionId, rpc) {
+class DnsApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
+    Api(rpc, sessionId) {
 
     /**
      * See https://docs.webfaction.com/xmlrpc-api/apiref.html#method-create_dns_override

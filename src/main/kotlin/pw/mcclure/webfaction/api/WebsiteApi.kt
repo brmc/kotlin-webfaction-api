@@ -8,8 +8,8 @@ import pw.mcclure.webfaction.client.WebfactionRpc
  *
  * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#websites>
  */
-class WebsiteApi(sessionId: String, rpc: RpcAdapter = WebfactionRpc()) :
-    Api(sessionId, rpc) {
+class WebsiteApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
+    Api(rpc, sessionId) {
     fun create(
         website_name: String,
         ip: String,

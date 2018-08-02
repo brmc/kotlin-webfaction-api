@@ -4,9 +4,9 @@ import pw.mcclure.webfaction.client.RpcAdapter
 import pw.mcclure.webfaction.client.WebfactionRpc
 
 open class CertificateApi(
-    sessionId: String,
-    rpc: RpcAdapter = WebfactionRpc()
-) : Api(sessionId, rpc) {
+    rpc: RpcAdapter = WebfactionRpc(),
+    sessionId: String = ""
+) : Api(rpc, sessionId) {
 
     /**
      * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-create_certificate>
@@ -28,7 +28,6 @@ open class CertificateApi(
      * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-delete_certificate>
      */
     fun delete(name: String) = call("delete_certificate", name)
-
 
     /**
      * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-list_certificates>

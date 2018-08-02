@@ -8,8 +8,8 @@ import pw.mcclure.webfaction.client.WebfactionRpc
  * 
  * See <https://docs.webfaction.com/xmlrpc-api/apiref.html#servers>
  */
-class ServerApi(sessionId: String, rpc: RpcAdapter = WebfactionRpc()) :
-    Api(sessionId, rpc) {
+class ServerApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
+    Api(rpc, sessionId) {
 
     /**
      *  See <https://docs.webfaction.com/xmlrpc-api/apiref.html#method-list_ips>

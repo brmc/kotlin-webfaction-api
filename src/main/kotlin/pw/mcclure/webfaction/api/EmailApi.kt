@@ -3,8 +3,8 @@ package pw.mcclure.webfaction.api
 import pw.mcclure.webfaction.client.RpcAdapter
 import pw.mcclure.webfaction.client.WebfactionRpc
 
-class EmailApi(sessionId: String, rpc: RpcAdapter = WebfactionRpc()) :
-    Api(sessionId, rpc) {
+class EmailApi(rpc: RpcAdapter = WebfactionRpc(), sessionId: String = "") :
+    Api(rpc, sessionId) {
 
     fun changePassword(mailboxName: String, password: String) =
         call("change_mailbox_password", mailboxName, password)
