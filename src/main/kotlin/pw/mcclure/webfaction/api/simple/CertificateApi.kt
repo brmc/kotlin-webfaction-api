@@ -1,4 +1,4 @@
-package pw.mcclure.webfaction.api
+package pw.mcclure.webfaction.api.simple
 
 import pw.mcclure.webfaction.client.RpcAdapter
 import pw.mcclure.webfaction.client.WebfactionRpc

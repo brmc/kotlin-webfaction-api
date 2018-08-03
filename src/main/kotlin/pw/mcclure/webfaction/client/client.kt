@@ -1,6 +1,6 @@
 package pw.mcclure.webfaction.client
 
-import pw.mcclure.webfaction.api.*
+import pw.mcclure.webfaction.api.simple.*
 import kotlin.reflect.KProperty
 
 
@@ -20,19 +20,32 @@ open class Client(
 
     var sessionId: String by SessionUpdater()
 
-    val app: AppApi = AppApi(rpc)
-    val misc: MiscApi = MiscApi(rpc)
-    val certificate: CertificateApi = CertificateApi(rpc)
-    val cron: CronApi = CronApi(rpc)
-    val db: DbApi = DbApi(rpc)
-    val dns: DnsApi = DnsApi(rpc)
-    val domain: DomainApi = DomainApi(rpc)
-    val email: EmailApi = EmailApi(rpc)
-    val file: FileApi = FileApi(rpc)
-    val general: GeneralApi = GeneralApi(rpc)
-    val server: ServerApi = ServerApi(rpc)
-    val shellUser: ShellUserApi = ShellUserApi(rpc)
-    val website: WebsiteApi = WebsiteApi(rpc)
+    val app: AppApi =
+        AppApi(rpc)
+    val misc: MiscApi =
+        MiscApi(rpc)
+    val certificate: CertificateApi =
+        CertificateApi(rpc)
+    val cron: CronApi =
+        CronApi(rpc)
+    val db: DbApi =
+        DbApi(rpc)
+    val dns: DnsApi =
+        DnsApi(rpc)
+    val domain: DomainApi =
+        DomainApi(rpc)
+    val email: EmailApi =
+        EmailApi(rpc)
+    val file: FileApi =
+        FileApi(rpc)
+    val general: GeneralApi =
+        GeneralApi(rpc)
+    val server: ServerApi =
+        ServerApi(rpc)
+    val shellUser: ShellUserApi =
+        ShellUserApi(rpc)
+    val website: WebsiteApi =
+        WebsiteApi(rpc)
 
     /**
      * Logs in to the Webfaction API
